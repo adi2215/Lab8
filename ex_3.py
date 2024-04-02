@@ -17,28 +17,28 @@ painting = []
 def draw_menu(color):
     pygame.draw.rect(screen, 'gray', [0, 0, WIDTH, 70])
     pygame.draw.line(screen, 'black', (0, 70), (WIDTH, 70), 3)
-    circle_brush = [pygame.draw.rect(screen, 'black', [10, 10, 50, 50]), 0]
-    pygame.draw.circle(screen, 'white', (35, 35), 20)
-    pygame.draw.circle(screen, 'black', (35, 35), 18)
-    rect_brush = [pygame.draw.rect(screen, 'black', [70, 10, 50, 50]), 1]
-    pygame.draw.rect(screen, 'white', [76.5, 26, 37, 20], 2)
+    circle_brush = [pygame.draw.rect(screen, 'white', [10, 10, 50, 50]), 0]
+    pygame.draw.circle(screen, 'black', (35, 35), 20)
+    pygame.draw.circle(screen, 'white', (35, 35), 18)
+    rect_brush = [pygame.draw.rect(screen, 'white', [70, 10, 50, 50]), 1]
+    pygame.draw.rect(screen, 'black', [76.5, 26, 37, 20], 2)
 
     brush_list = [circle_brush, rect_brush]
 
     pygame.draw.circle(screen, color, (400, 35), 30)
     pygame.draw.circle(screen, 'dark gray', (400, 35), 30, 3)
 
-    eraser = pygame.image.load("media/eraser-square-svgrepo-com.svg")
-    eraser_rect = eraser.get_rect(topleft=(WIDTH - 150, 7))
-    eraser_rect.width = eraser_rect.height = 25
-    screen.blit(eraser, [WIDTH - 150, 7, 25, 25])
+    eraser = pygame.image.load("media/Eraser.png")
+    eraser_rect = eraser.get_rect(topleft=(WIDTH - 190, 10))
+    eraser_rect.width = eraser_rect.height = 35
+    screen.blit(eraser, [WIDTH - 190, 10, 25, 25])
 
     blue = pygame.draw.rect(screen, (0, 0, 255), [WIDTH - 35, 10, 25, 25])
     red = pygame.draw.rect(screen, (255, 0, 0), [WIDTH - 35, 35, 25, 25])
     green = pygame.draw.rect(screen, (0, 255, 0), [WIDTH - 60, 10, 25, 25])
     yellow = pygame.draw.rect(screen, (255, 255, 0), [WIDTH - 60, 35, 25, 25])
-    teal = pygame.draw.rect(screen, (0, 255, 255), [WIDTH - 85, 10, 25, 25])
-    purple = pygame.draw.rect(screen, (255, 0, 255), [WIDTH - 85, 35, 25, 25])
+    teal = pygame.draw.rect(screen, (0, 255, 255),[WIDTH - 85, 35, 25, 25])
+    purple = pygame.draw.rect(screen, (255, 0, 255), [WIDTH - 85, 10, 25, 25])
     black = pygame.draw.rect(screen, (0, 0, 0), [WIDTH - 110, 10, 25, 25])
     # black = pygame.draw.rect(screen, (255, 255, 255), [WIDTH - 110, 35, 25, 25])
     color_rect = [blue, red, green, yellow, teal, purple, black, eraser_rect]
@@ -74,7 +74,7 @@ while run:
 
     if mouse[1] > 85:
         if active_color == (255, 255, 255):
-            pygame.draw.rect(screen, active_color, [mouse[0] - 15, mouse[1] - 15, 37, 20])
+            pygame.draw.circle(screen, active_color, mouse, 20, 2)
         else:
             if active_figure == 0:
                 pygame.draw.circle(screen, active_color, mouse, 20, 2)
